@@ -129,6 +129,7 @@ var (
 	ErrSessionMoved            = errors.New("zk: session moved to another server, so operation is ignored")
 	ErrReconfigDisabled        = errors.New("attempts to perform a reconfiguration operation when reconfiguration feature is disabled")
 	ErrBadArguments            = errors.New("invalid arguments")
+	ErrTimeout                 = errors.New("timeout exceeded")
 	// ErrInvalidCallback         = errors.New("zk: invalid callback specified")
 
 	errCodeToError = map[ErrCode]error{
@@ -149,6 +150,7 @@ var (
 		errSessionMoved:      ErrSessionMoved,
 		errZReconfigDisabled: ErrReconfigDisabled,
 		errBadArguments:      ErrBadArguments,
+		errTimeout:           ErrTimeout,
 	}
 )
 
@@ -171,6 +173,7 @@ const (
 	errOperationTimeout     = -7
 	errBadArguments         = -8
 	errInvalidState         = -9
+	errTimeout              = -10
 	// API errors
 	errAPIError                ErrCode = -100
 	errNoNode                  ErrCode = -101 // *
